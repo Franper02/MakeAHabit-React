@@ -1,0 +1,46 @@
+.front-page-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 8%;
+}
+
+.front-page {
+  display: flex;
+  aspect-ratio: 1/1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.title {
+  font-size: 4rem;
+  text-align: center;
+}
+
+.button-container {
+  margin-top: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  aspect-ratio: 1/0.5;
+  background-color: rgb(1, 178, 45);
+  color: white;
+  border-radius: 3rem;
+}
+
+.button-container:hover {
+  cursor: pointer;
+  background-color: rgb(3 132 35);
+}
+
+.wave {
+  z-index: -100;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 25%;
+  background-repeat: no-repeat;
+  background-image: url("/public/wave.svg");
+}
