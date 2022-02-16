@@ -9,7 +9,7 @@ export class FormComp extends React.Component{
                 <div className="form-container">  
                     <div className="card-wrapper">
                         <h2 className="card-title">Register</h2>
-                        <form className="form" action="{% url 'habits:register'  %}" method="POST">
+                        <form className="form" action="" method="POST">
                             <div className="fields">
                                 <div className="input-container"> 
                                     <input id="input" placeholder="Username" name="username" required></input>

@@ -123,6 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+AUTH_USER_MODEL = 'habitsapp.User'
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'reactapp/build/static')
