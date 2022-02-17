@@ -3,11 +3,17 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
+from django.views.decorators.csrf import csrf_exempt
 
 from .models import User
 
 
 
+def home(request):
+    return render(request, 'index.html')
+
+
+@csrf_exempt
 def login_view(request):
     if request.method == "POST":
         username = request.POST['username']
@@ -26,7 +32,7 @@ def login_view(request):
     else:
         return render(request, 'index.html')
 
-
+@csrf_exempt
 def register_view(request):
     if request.method == 'POST':
         username = request.POST['username']

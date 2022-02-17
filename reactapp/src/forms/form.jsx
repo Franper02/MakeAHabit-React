@@ -9,7 +9,7 @@ export class FormComp extends React.Component{
                 <div className="form-container">  
                     <div className="card-wrapper">
                         <h2 className="card-title">Register</h2>
-                        <form className="form" action="" method="POST">
+                        <form className="form" action="/register" method="POST">
                             <div className="fields">
                                 <div className="input-container"> 
                                     <input id="input" placeholder="Username" name="username" required></input>
@@ -18,10 +18,10 @@ export class FormComp extends React.Component{
                                     <input id="input" placeholder="Email" name="email" required></input>
                                 </div>
                                 <div className="input-container">
-                                    <input id="input" placeholder="Password" name="password" required></input>
+                                    <input id="input" placeholder="Password" name="password" type='password' required></input>
                                 </div>
                                 <div className="input-container">
-                                    <input id="input" placeholder="Confirm password" name="confirmation" required></input>
+                                    <input id="input" placeholder="Confirm password" name="confirmation" type='password' required></input>
                                 </div>
                                 <div className="btn-container">
                                     <input id="submit-btn" type="submit"></input>
