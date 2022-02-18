@@ -13,7 +13,7 @@ export class NavBar extends React.Component{
       <div className='nav-links-container'>
         <ul className="nav-links-list">
           <li>
-            <a className="nav-link">Contact us</a>
+            <h4 className="contact">Contact us</h4>
           </li>
           <li>
             <button className="nav-link" onClick={() => this.props.toggleForm(!this.props.visible)}>Sign in</button>

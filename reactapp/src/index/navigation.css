@@ -25,8 +25,22 @@
 }
 
 .nav-link {
+  outline: none;
+  border: none;
   font-size: 1rem;
-  padding: 10%;
+  background-color: rgb(1, 178, 45);
+  color: white;
+  border-radius: 3rem;
+  padding: 5%;
+}
+
+.nav-link:hover{
+  cursor: pointer;
+  background-color: rgb(3 132 35);
+}
+
+.contact{
+  vertical-align: middle;
 }
 
 li {
