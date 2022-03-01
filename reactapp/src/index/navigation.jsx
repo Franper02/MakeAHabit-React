@@ -1,8 +1,7 @@
 import React from "react";
 import './navigation.css';
 
-export class NavBar extends React.Component{
-  render(){
+export default function NavBar(props){
     return(
       <div className="App">
     <nav className="bar">
@@ -15,16 +14,14 @@ export class NavBar extends React.Component{
             <h4 className="contact">Contact us</h4>
           </li>
           <li>
-            <button className="nav-link" onClick={() => this.props.toggleLogin(!this.props.loginVisible)}>Sign in</button>
+            <button className="nav-link" onClick={() => props.toggleLogin()}>Sign in</button>
           </li>
           <li>
-            <button className="nav-link" onClick={() => this.props.toggleRegister(!this.props.registerVisible)}>Sing up</button>
+            <button className="nav-link" onClick={() => props.toggleRegister()}>Sing up</button>
           </li>
         </ul>
       </div>
     </nav>
   </div>
   );
-  }
-
 }

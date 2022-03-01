@@ -4,11 +4,16 @@ from django.urls import reverse
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
+from django.contrib.auth.decorators import login_required
 
 from .models import User
 
 
 
+def index(request):
+    return render(request, 'index.html')
+
+@login_required(login_url="habits:index")
 def home(request):
     return render(request, 'index.html')
 
@@ -23,11 +28,9 @@ def login_view(request):
 
         if user is not None:
             login(request, user)
-            return 
+            return HttpResponseRedirect(reverse('habits:home'))
         else:
-            return render(request, "habits:register", {
-                'error': True,
-            })
+            return render(request, "index.html")
 
     else:
         return render(request, 'index.html')
@@ -44,7 +47,6 @@ def register_view(request):
             return render(request, "index.html", {
                 'error': True
         })
-
         try:
             user = User.objects.create_user(username, email, password)
             user.save()

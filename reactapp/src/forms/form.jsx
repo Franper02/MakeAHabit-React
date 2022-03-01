@@ -8,6 +8,7 @@ export function RegisterForm(props){
             <div className="form-container">  
                 <div className="card-wrapper">
                     <h2 className="card-title">Register</h2>
+                    <button onClick={props.closeForm}>Close</button> 
                     <form className="form" action="/register" method="POST">
                         <div className="fields">
                             <div className="input-container"> 
@@ -43,6 +44,7 @@ export function LoginForm(props){
             <div className="form-container">  
                 <div className="card-wrapper">
                     <h2 className="card-title">Login</h2>
+                    <button onClick={props.closeForm}>Close</button> 
                     <form className="form" action="/login" method="POST">
                         <div className="fields">
                             <div className="input-container"> 
