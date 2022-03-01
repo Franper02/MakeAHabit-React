@@ -9,23 +9,58 @@ class App extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-        visible : false,
+        registerVisible : false,
+        loginVisible : false,
     };
 
-    this.toggleForm = this.toggleForm.bind(this)
+    this.toggleRegister = this.toggleRegister.bind(this)
+    this.toggleLogin = this.toggleLogin.bind(this)
 }
 
-toggleForm(bool){
+toggleRegister(bool){
+    if(this.state.loginVisible === false){
+        this.setState({
+          registerVisible : bool
+      })
+    }
+    else{
+      this.toggleLogin(false)
+      this.setState({
+        registerVisible : bool
+      })
+    }
+
+}
+
+toggleLogin(bool){
+  if(this.state.registerVisible === false){
     this.setState({
-        visible : bool
+      loginVisible : bool
     })
+  }
+  else{
+    this.toggleRegister(false)
+    this.setState({
+      loginVisible : bool
+    })
+  }
 }
 
   render(){
     return (
       <Fragment>
-        <NavBar visible = {this.state.visible} toggleForm = {this.toggleForm} />
-        <Front visible = {this.state.visible} toggleForm = {this.toggleForm} />
+        <NavBar 
+            registerVisible = {this.state.registerVisible} 
+            toggleRegister = {this.toggleRegister} 
+            loginVisible = {this.state.loginVisible} 
+            toggleLogin = {this.toggleLogin} 
+          />
+        <Front 
+          registerVisible = {this.state.registerVisible} 
+          toggleRegister = {this.toggleRegister} 
+          loginVisible = {this.state.loginVisible} 
+          toggleLogin = {this.toggleLogin}
+        />
       </Fragment>
     
     );

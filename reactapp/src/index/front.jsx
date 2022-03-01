@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import './front.css'
-import { FormComp } from "../forms/form";
+import { LoginForm, RegisterForm } from "../forms/form";
 
 export class Front extends React.Component{
     constructor(props){
@@ -9,18 +9,20 @@ export class Front extends React.Component{
     render(){
         return(
             <Fragment>
-            <FormComp visible = {this.props.visible}/>
+            <RegisterForm registerVisible = {this.props.registerVisible} />
+            <LoginForm  loginVisible = {this.props.loginVisible}/>
+            {(!this.props.loginVisible && !this.props.registerVisible) &&
                 <div className="front-page-wrapper">
                     <div className="front-page">
                         <h1 className="title">Make<br/> A <br/>Habit.</h1>
                         <h4 className="subtitle">Build a habit and register your progress daily</h4>
-                        <div className="button-container" onClick={() => this.props.toggleForm(!this.props.visible)}>
+                        <div className="button-container" onClick={() => this.props.toggleRegister(!this.props.registerVisible)}>
                             Get Started
                         </div>
-                        <div className="wave">
-                        </div>
                     </div>
-                </div>
+                </div>}
+                <div className="wave">
+                        </div>
             </Fragment>
     
         )
