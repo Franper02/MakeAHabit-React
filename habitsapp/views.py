@@ -1,12 +1,15 @@
+from urllib import response
+from django import http
 from django.db import IntegrityError
 from django.shortcuts import render
 from django.urls import reverse
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, JsonResponse
 from django.contrib.auth import authenticate, login, logout
 from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
+from django.core import serializers
 
-from .models import User
+from .models import Habit, User
 
 
 
@@ -59,3 +62,21 @@ def register_view(request):
 
     else:
         return render(request, "index.html")
+
+
+@csrf_exempt
+@login_required(login_url="habits:login")
+def queryHabits(request):
+    if request.method == 'GET':
+        habit = Habit.objects.filter(user=request.user)
+        response = serializers.serialize("json", habit)
+    return HttpResponse(response, content_type='application/json')
+
+
+@csrf_exempt
+@login_required(login_url="habits:login")
+def completed(request, id):
+    if request.method == 'GET':
+        habit = Habit.objects.filter(pk=id)
+        print(habit[0])
+    return JsonResponse(habit[0].serialize())
