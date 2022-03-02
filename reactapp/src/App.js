@@ -1,8 +1,6 @@
-import React, { Fragment } from 'react'
-import ReactDOM, { render } from 'react-dom';
+import React from 'react'
 import NavBar from './index/navigation'
 import Front from './index/front'
-import FormComp from './forms/form'
 import './index.css'
 
 export default function App(){

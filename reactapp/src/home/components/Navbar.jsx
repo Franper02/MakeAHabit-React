@@ -1,12 +1,13 @@
 import React from "react";
+import '../styles/home.css'
 
 export default function Navbar(){
     return(
-        <div>
-             <div>
-                <h1>Habits</h1>
-                <h4>Today: </h4>
-            </div>
+        <div className="nav-container">
+            <button className="nav-button">+</button>
+            <button className="nav-button">Home</button>
+            <button className="nav-button">Calendar</button>
+            <button className="nav-button">Log-out</button>
         </div>
     )
 }

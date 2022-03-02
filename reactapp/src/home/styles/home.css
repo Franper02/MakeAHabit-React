@@ -1,0 +1,44 @@
+.homepage-habits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homepage-navbar {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.nav-container {
+  display: flex;
+  height: 100%;
+  max-width: fit-content;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding: 3%;
+  border: 1px solid black;
+  box-shadow: 0rem 0rem 2rem black;
+  margin: 0rem 2rem 0rem 0rem;
+}
+
+.nav-button {
+  aspect-ratio: 1/1;
+  margin: 1rem;
+}
+
+.home-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  margin-left: 10%;
+}
+
+.habit-wrapper {
+  width: 100%;
+}
