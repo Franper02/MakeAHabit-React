@@ -64,6 +64,7 @@ def register_view(request):
         return render(request, "index.html")
 
 
+
 @csrf_exempt
 @login_required(login_url="habits:login")
 def queryHabits(request):

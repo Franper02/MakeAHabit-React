@@ -23,6 +23,7 @@
   background-color: white;
   border: 1px solid black;
   border-radius: 5rem;
+  position: relative;
 }
 
 .form{
@@ -56,4 +57,21 @@
   width: 100%;
   aspect-ratio: 1/0.23;
   border-radius: 1rem;
+}
+
+.close-form-button{
+  aspect-ratio: 1/1;
+  min-width: 3rem;
+  background-color: red;
+  position: absolute;
+  color: white;
+  top: 0;
+  right: 0;
+  border-radius: 100%;
+  border: none;
+}
+
+.close-form-button:hover{
+  background-color: brown;
+  cursor: pointer;
 }
