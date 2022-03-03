@@ -74,6 +74,13 @@ def queryHabits(request):
     return HttpResponse(response, content_type='application/json')
 
 
+@login_required(login_url="habits:login")
+def logout_view(request):
+    logout(request)
+    return HttpResponseRedirect(reverse('habits:index'))
+
+
+
 @csrf_exempt
 @login_required(login_url="habits:login")
 def completed(request, id):
