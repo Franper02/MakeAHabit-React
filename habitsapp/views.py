@@ -1,3 +1,4 @@
+import json
 from urllib import response
 from django import http
 from django.db import IntegrityError
@@ -9,15 +10,22 @@ from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.core import serializers
 
-from .models import Habit, User
+from .models import Habit, Habit_Completed, User
 
 
 
 def index(request):
     return render(request, 'index.html')
 
+@csrf_exempt
 @login_required(login_url="habits:index")
 def home(request):
+    if request.method == "POST":
+        data = json.loads(request.body)
+        newHabit = data['habit']
+        habit = Habit.objects.create(user=request.user, habit=newHabit)
+        Habit_Completed.objects.create(user=request.user, habits=habit)
+        
     return render(request, 'index.html')
 
 
@@ -69,7 +77,8 @@ def register_view(request):
 @login_required(login_url="habits:login")
 def queryHabits(request):
     if request.method == 'GET':
-        habit = Habit.objects.filter(user=request.user)
+        habit = Habit.objects.filter(user=request.user).order_by('-pk')
+        print(habit[0])
         response = serializers.serialize("json", habit)
     return HttpResponse(response, content_type='application/json')
 

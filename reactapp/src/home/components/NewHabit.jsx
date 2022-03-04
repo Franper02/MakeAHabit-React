@@ -7,8 +7,17 @@ export default function NewHabit(props){
         {props.visible &&
             <div className="new-habit-container">
                 <h2 className="new-habit-title">Create a new habit</h2>
-                <form>
-                    <input placeholder="Habit..." />
+                <form onSubmit={props.handleSubmit}>
+                    <input 
+                        name="habit" 
+                        placeholder="Habit..."
+                        onChange={props.handleChange}
+                        value={props.formData.habit} 
+                        required/>
+                    <div>
+                        <input name="Submit" type="submit"/>
+                        <button onClick={props.toggleNewHabit}>Cancel</button>
+                    </div>
                 </form>
             </div>
         }

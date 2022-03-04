@@ -3,14 +3,14 @@ import Habit from "./Habit";
 import '../styles/home.css'
 
 
-export default function HabitsPage(){
+export default function HabitsPage(props){
     const [HabitData, setHabitData] = React.useState([])
 
     React.useEffect(() => {
         fetch("queryHabits")
         .then(response => response.json())
         .then(data => setHabitData(data))
-    }, [])
+    }, [props.isNewHabit])
 
     console.log(HabitData)
 
