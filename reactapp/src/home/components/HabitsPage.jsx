@@ -4,7 +4,35 @@ import '../styles/home.css'
 
 
 export default function HabitsPage(props){
-    const [HabitData, setHabitData] = React.useState([])
+
+    const [isHabitChecked, setIsHabitChecked] = React.useState(false)
+
+    const [HabitData, setHabitData] = React.useState([
+        {
+            model: "habitsapp.habit",
+            pk: 20,
+            fields: {
+                user: 1,
+                habit: "Despertarse a las 7am",
+                creation_time: "2022-03-05",
+                status: false
+            }
+        }
+    ])
+
+    function toggleCompleted(event){
+        let check = event.target.nextElementSibling;
+        check.style.display="block";
+        check.style.animationPlayState="running";
+    }
+
+    function endAnim(event) {
+        setIsHabitChecked(prevIsHabitChecked => !prevIsHabitChecked)
+        let check = event.target
+        check.style.display="none"
+        check.parentElement.style=`background-color : ${isHabitChecked ? 'white' : 'var(--green)'}`
+        check.className= isHabitChecked ? "check" : "uncheck"
+    }
 
     React.useEffect(() => {
         fetch("queryHabits")
@@ -15,7 +43,7 @@ export default function HabitsPage(props){
     console.log(HabitData)
 
     const allHabits = HabitData.map(hab => {
-        return <Habit title={hab.fields.habit} />
+        return <Habit title={hab.fields.habit} toggleCompleted={toggleCompleted} endAnim={endAnim} />
     })
 
     var today = new Date();

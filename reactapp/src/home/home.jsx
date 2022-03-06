@@ -39,21 +39,24 @@ export default function Home(){
     }
 
     return(
-        <>
+        <div className="page-container">
             <div className="homepage-navbar">
                 <Navbar toggleNewHabit={toggleNewHabit}/>
             </div>
-            <NewHabit 
-                visible={isNewHabitOn} 
-                toggleNewHabit={toggleNewHabit} 
-                formData={formData}
-                handleChange={handleChange}
-                handleSubmit={handleSubmit}
-                />
-            <div className="homepage-habits">
-                <HabitsPage isNewHabit={isNewHabitOn}/>
+            <div className="main-content-wrapper">
+                <NewHabit 
+                    visible={isNewHabitOn} 
+                    toggleNewHabit={toggleNewHabit} 
+                    formData={formData}
+                    handleChange={handleChange}
+                    handleSubmit={handleSubmit}
+                    />
+                <div className="homepage-habits">
+                    <HabitsPage isNewHabit={isNewHabitOn}/>
+                </div>
             </div>
-        </>
+        </div>
+
 
     )
 }

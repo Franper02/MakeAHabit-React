@@ -1,8 +1,11 @@
+.app {
+  background-color: white !important;
+}
+
 .bar {
   display: flex;
   align-items: center;
   padding: 1%;
-  background-color: #f8f9fa;
 }
 
 .brand-wrap {
@@ -34,14 +37,14 @@
   padding: 5%;
 }
 
-.nav-link:hover{
+.nav-link:hover {
   cursor: pointer;
   background-color: rgb(3 132 35);
 }
 
-.contact{
+.contact {
   vertical-align: middle;
-  padding : 4%
+  padding: 4%;
 }
 
 li {

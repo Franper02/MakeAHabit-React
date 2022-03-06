@@ -1,10 +1,22 @@
+:root {
+  --green: rgb(1, 178, 45);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Open+Sans:wght@600&display=swap");
+
+body {
+  font-family: "Fredoka One", cursive;
+}
+
 .habit-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   border: 1px solid black;
-  padding: 6%;
+  padding: 2%;
   margin-bottom: 2%;
+  position: relative;
+  overflow: hidden;
 }
 
 .new-habit-container {
@@ -18,6 +30,126 @@
   background: rgba(0, 0, 0, 0.5);
 }
 
+.new-habit-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2%;
+}
+
 .new-habit-title {
-  color: rgb(1, 178, 45);
+  color: var(--green);
+}
+
+.new-habit-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.habit-checkbox {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  vertical-align: middle;
+  outline: none;
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0.9rem;
+  background: white;
+  border-radius: 0.25em;
+  border: 0.125em solid #555;
+  position: relative;
+  margin-right: 2rem;
+  z-index: 2;
+}
+
+.habit-checkbox:checked::after {
+  content: "✔";
+  position: absolute;
+  font-size: 1.8rem;
+  left: 0.1em;
+  top: -0.25em;
+  color: var(--green);
+  z-index: 2;
+}
+
+/* Animations */
+@keyframes FallDown {
+  100% {
+    transform: translateY(0);
+  }
+  0%,
+  10% {
+    transform: translateY(300px);
+  }
+}
+
+@keyframes check {
+  0% {
+    transform: translateX(-100%) rotate(360deg);
+  }
+
+  95% {
+    transform: translateX(0%) rotate(0deg);
+  }
+}
+
+@keyframes uncheck {
+  0% {
+    transform: translateX(100%) rotate(360deg);
+  }
+
+  95% {
+    transform: translateX(0%) rotate(0deg);
+  }
+}
+
+@keyframes Desaparecer {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+.check {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -43%;
+  background-color: var(--green);
+  width: 170%;
+  aspect-ratio: 1/1;
+  animation: check 2s linear forwards;
+  animation-play-state: paused;
+  border-radius: 25%;
+  z-index: 1;
+}
+
+.uncheck {
+  content: "";
+  position: absolute;
+  bottom: -50%;
+  right: -43%;
+  background-color: white;
+  width: 170%;
+  aspect-ratio: 1/1;
+  animation: uncheck 2s linear forwards;
+  animation-play-state: paused;
+  border-radius: 25%;
+}
+
+.habit-title {
+  z-index: 2;
 }

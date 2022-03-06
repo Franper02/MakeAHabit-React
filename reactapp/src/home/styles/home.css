@@ -1,3 +1,8 @@
+.page-container {
+  display: flex;
+  width: 100%;
+}
+
 .homepage-habits {
   display: flex;
   justify-content: center;
@@ -6,11 +11,13 @@
 
 .homepage-navbar {
   display: flex;
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
+  flex: 0 0 150px;
+  height: 100vh;
   overflow: hidden;
+}
+
+.main-content-wrapper {
+  width: 100%;
 }
 
 .nav-container {
@@ -24,6 +31,7 @@
   box-shadow: 0rem 0rem 2rem black;
   margin: 0rem 2rem 0rem 0rem;
   z-index: 1;
+  background-color: white;
 }
 
 .nav-button {
@@ -37,9 +45,9 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  margin-left: 6%;
 }
 
 .habit-wrapper {
   width: 100%;
+  margin-top: 2rem;
 }
