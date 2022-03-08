@@ -43,14 +43,14 @@ export default function Home(){
             <div className="homepage-navbar">
                 <Navbar toggleNewHabit={toggleNewHabit}/>
             </div>
-            <div className="main-content-wrapper">
-                <NewHabit 
+            <NewHabit 
                     visible={isNewHabitOn} 
                     toggleNewHabit={toggleNewHabit} 
                     formData={formData}
                     handleChange={handleChange}
                     handleSubmit={handleSubmit}
                     />
+            <div className="main-content-wrapper" style={{display:`${isNewHabitOn ? "none" : "block"}`}}>
                 <div className="homepage-habits">
                     <HabitsPage isNewHabit={isNewHabitOn}/>
                 </div>

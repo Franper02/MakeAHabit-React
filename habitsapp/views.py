@@ -93,7 +93,18 @@ def logout_view(request):
 @csrf_exempt
 @login_required(login_url="habits:login")
 def completed(request, id):
-    if request.method == 'GET':
+    if request.method == 'PUT':
+        data = json.loads(request.body)
         habit = Habit.objects.filter(pk=id)
-        print(habit[0])
-    return JsonResponse(habit[0].serialize())
+        if data['comp'] == True:
+            habit.update(status=True)
+            Habit_Completed.objects.create(user=request.user, habits=habit[0])
+        else:
+    # If the 'put' sends a false, update the status to false and deltes the habit_completed object
+            habit.update(status=False)
+            habitCompleted = Habit_Completed.objects.filter(
+                user=request.user, habits=habit[0])
+            if habitCompleted != None:
+                habitCompleted.delete()
+
+        return HttpResponse(status=204)

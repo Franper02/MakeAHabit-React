@@ -18,6 +18,7 @@
 
 .main-content-wrapper {
   width: 100%;
+  z-index: 9;
 }
 
 .nav-container {
