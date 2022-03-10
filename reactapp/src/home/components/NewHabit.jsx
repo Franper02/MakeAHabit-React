@@ -10,14 +10,15 @@ export default function NewHabit(props){
                     <h2 className="new-habit-title">Create a new habit</h2>
                     <form className="new-habit-form" onSubmit={props.handleSubmit}>
                         <input 
+                            className="new-habit-input"
                             name="habit" 
                             placeholder="Habit..."
                             onChange={props.handleChange}
                             value={props.formData.habit} 
                             required/>
                         <div className="form-buttons">
-                            <input name="Submit" type="submit"/>
-                            <button onClick={props.toggleNewHabit}>Cancel</button>
+                            <input className="new-habit-submit" name="Submit" type="submit"/>
+                            <button className="new-habit-cancel" onClick={props.toggleNewHabit}>Cancel</button>
                         </div>
                     </form>
                 </div>

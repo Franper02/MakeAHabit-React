@@ -34,28 +34,69 @@ body {
 
 .new-habit-wrapper {
   display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  align-items: center;
   height: 70%;
   width: 40%;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   padding: 2%;
   background-color: white;
+  animation: FallDown 0.5s linear forwards;
+}
+
+.new-habit-input {
+  width: 90%;
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+.new-habit-input,
+.new-habit-submit,
+.new-habit-cancel {
+  font-family: "Fredoka One", cursive;
+}
+
+.new-habit-submit,
+.new-habit-cancel {
+  padding: 1rem;
+  color: white;
+  outline: none;
+  border: none;
+  font-family: "Fredoka One", cursive;
+}
+
+.new-habit-cancel {
+  background-color: crimson;
+}
+.new-habit-cancel:hover {
+  background-color: #97102b;
+}
+
+.new-habit-submit {
+  background-color: var(--green);
+}
+
+.new-habit-submit:hover {
+  background-color: rgb(1, 117, 30);
 }
 
 .new-habit-title {
+  font-size: 2.4rem;
   color: var(--green);
+  text-align: center;
 }
 
 .new-habit-form {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 80%;
 }
 
 .form-buttons {
   display: flex;
   justify-content: space-evenly;
+  padding: 3rem 0rem;
 }
 
 .habit-checkbox {
@@ -92,7 +133,7 @@ body {
   }
   0%,
   10% {
-    transform: translateY(300px);
+    transform: translateY(-300px);
   }
 }
 
