@@ -108,3 +108,11 @@ def completed(request, id):
                 habitCompleted.delete()
 
         return HttpResponse(status=204)
+
+@csrf_exempt
+@login_required(login_url="habits:login")
+def delete(request, id):
+    if request.method == 'POST':
+        habit = Habit.objects.filter(pk=id)
+        habit.delete()
+    return HttpResponse(status=204)

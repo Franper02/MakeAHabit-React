@@ -18,10 +18,6 @@ export default function HabitsPage(props){
         }
     ])
 
-    //let status = HabitData.map((data) => data.fields.status)
-
-    //const [isHabitChecked, setIsHabitChecked] = React.useState(status)
-
     React.useEffect(() => {
         fetch("queryHabits")
         .then(response => response.json())

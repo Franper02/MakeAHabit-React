@@ -12,6 +12,7 @@ urlpatterns = [
     path("home", views.home, name="home"),
 
     path("completed/<int:id>", views.completed, name="completed"),
-    path("queryHabits", views.queryHabits, name="queryHabits")
+    path("queryHabits", views.queryHabits, name="queryHabits"),
+    path("delete/<int:id>", views.delete, name="delete")
 
 ]

@@ -17,6 +17,23 @@ body {
   margin-bottom: 2%;
   position: relative;
   overflow: hidden;
+  animation: Desaparecer 0.7s linear forwards;
+  animation-play-state: paused;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.habit-delete {
+  padding: 0.5rem;
+  background-color: crimson;
+  color: white;
+  border: none;
+  z-index: 2;
 }
 
 .new-habit-container {
