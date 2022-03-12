@@ -1,0 +1,43 @@
+.calendar-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.calendar {
+  margin: 2rem;
+  box-shadow: 0rem 0rem 1rem 0.3rem;
+}
+
+.month {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  background-color: aquamarine;
+}
+
+.month > p {
+  padding: 0.8rem;
+}
+
+.days {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.2rem;
+  margin: 1rem;
+}
+
+.days > div {
+  display: flex;
+  width: 14%;
+  aspect-ratio: 1/1;
+  justify-content: center;
+  align-items: center;
+}
+
+.days > div:hover {
+  background-color: rgb(0, 255, 255);
+}

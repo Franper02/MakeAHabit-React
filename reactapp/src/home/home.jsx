@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "./components/Navbar";
 import HabitsPage from "./components/HabitsPage";
 import NewHabit from "./components/NewHabit";
+import Calendar from "../calendar/Calendar";
 import './styles/home.css'
 
 export default function Home(){
@@ -12,6 +13,13 @@ export default function Home(){
         habit : "",
         isChecked : false,
     })
+
+    const[navigation, changeNavigation] = React.useState(true)
+
+
+    function toggleNavigation(){
+        changeNavigation(prevChangeNavigation => !prevChangeNavigation)
+    }
 
     function toggleNewHabit(){
         setNewHabitOn(prevIsNewHabitOn => !prevIsNewHabitOn)
@@ -41,7 +49,7 @@ export default function Home(){
     return(
         <div className="page-container">
             <div className="homepage-navbar">
-                <Navbar toggleNewHabit={toggleNewHabit}/>
+                <Navbar toggleNewHabit={toggleNewHabit} toggleNavigation={toggleNavigation}/>
             </div>
             <NewHabit 
                     visible={isNewHabitOn} 
@@ -52,7 +60,7 @@ export default function Home(){
                     />
             <div className="main-content-wrapper" style={{display:`${isNewHabitOn ? "none" : "block"}`}}>
                 <div className="homepage-habits">
-                    <HabitsPage isNewHabit={isNewHabitOn}/>
+                    {navigation ? <HabitsPage isNewHabit={isNewHabitOn}/> : <Calendar />}
                 </div>
             </div>
         </div>
